@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    body,html{
+        margin: 0px;
+        padding: 0px;
+    }
+    .container{
+        background-color: #ffe;
+        overflow: hidden;
+        margin: 0 auto;
+        margin-top: 40px;
+        width:700px;
+        height: 700px;
+        position: relative;
+    }
+    .container .chatInfo{
+        width: 500px;
+        height: 500px;
+        position: absolute;
+        background-color: #fff;
+        border:#000 1px solid;
+        overflow:auto;
+    }
+    .container .contacts{
+        width: 200px;
+        height: 698px;
+        background-color: #fff;
+        position: absolute;
+        right: 0px;
+        border:#000 1px solid;
+    }
+    .container .text{
+        width:497px;
+        height: 200px;
+        background-color: #fff;
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        border:#000 1px solid;
+
+    }
+    .text textarea{
+        outline:none;
+        resize:none;
+        }
+    .btn{
+        position: absolute;
+        right: 20px;
+    }
+    
+</style>
+<body>
+    <div id="app">
+        <div class="container">
+            <div class="chatInfo">
+                <ul>
+                    <p>您正在和  {{ shou_name }}  进行聊天！</p>
+                    <li v-for="(v,k) in messageList">
+                        <p>{{v.u_name}}</p>
+                        <p>{{v.message}}</p>
+                    </li>
+                 
+                </ul>
+            </div>
+            <div class="contacts">
+                <ul>
+                    <li v-for="(v,k) in userList">
+                            <a href="#" v-if="k == id ">(我)</a>
+                            <a :href="'sl.html?id='+k+'&name='+v" target="_blank" v-else >{{v}}</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <div class="text">
+                <textarea @keydown.enter="sends" style="width: 493px;height: 160px;border:none;" v-model="content"></textarea>
+                <input class="btn" type="button" @click="sends" value="发送">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    new Vue({
+        el:'#app',
+        data:{
+            //用户列表
+            userList:[],
+            //消息列表
+            messageList:[],
+            //发送的内容
+            content:'',
+            //websocket对象
+            ws:null,
+            //本客户端的id
+            id:'',
+            //发消息人的name
+            user_name:'',
+            //群发还是私人
+            send:'',
+            // 收消息的人
+            shou_id:'',
+            shou_name:''
+
+        },
+            //首先取出jwt
+        created:function(){
+            
+            let jwt_token = localStorage.getItem('jwt');
+            this.id = localStorage.getItem('id');
+            // 获取url参数
+            var url = location.search;
+            var theRequest = new Object();
+            if (url.indexOf("?") != -1) {
+                var str = url.substr(1);
+                strs = str.split("&");
+                for(var i = 0; i < strs.length; i ++) {
+                    theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);
+                }
+            }
+
+            this.shou_name = theRequest.name
+            this.send = theRequest.id
+            if(jwt_token==undefined){
+                location.href="login.html";
+            }else{
+                // 连接 websocket
+                this.ws = new WebSocket('ws://127.0.0.1:9999?jwt_token='+jwt_token);
+                this.ws.onopen = this.open;
+                this.ws.onmessage = this.message;
+                this.ws.error = this.error;
+
+            }
+        },
+        methods:{
+            // 发送信息
+            sends:function(){
+                    
+                    this.ws.send(this.send+':'+this.content)
+                    this.content = '';
+            },
+            error:function(){
+                location.href="login.html"
+            },
+            open:function(){
+                alert('连接成功')
+            },
+            message:function(e){
+                let data = JSON.parse(e.data);
+                if(data.type=='users'){
+                        this.userList = data.user
+                    // console.log(this.userList)
+                }else{
+                        this.messageList.push(data)
+                    // 保持聊天记录 在最底部
+                        this.$nextTick(()=>{
+                        var div_ul = document.querySelector('.chatInfo')
+                        // console.log(div_ul) 
+                        var ul = div_ul.querySelector('ul')
+                        div_ul.scrollTop = ul.scrollHeight
+                    })
+                }
+            },
+            
+
+        }
+    })
+</script>

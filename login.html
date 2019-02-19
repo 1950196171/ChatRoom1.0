@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        
+                <h1>
+                        登陆
+                </h1>
+            <div style="width: 400px;">
+                用户名：<input type="text" v-model="username">
+            </div>
+            <div>
+                密码：<input type="password" v-model="password">
+            </div>
+            <div>
+                <input @click="login" type="button"  value="登陆">
+            </div>
+    </div>
+</body>
+</html>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/axios/0.18.0/axios.min.js"></script>
+
+<script>
+    new Vue({
+        el:"#app",
+        data:{
+            username:'',
+            password:'',
+        },
+        methods:{
+            login:function(){
+                axios.post('http://localhost:9999/dologin.php',{
+                    username:this.username,
+                    password:this.password
+                }).then(function(response){
+                    console.log(response);
+                    if(response.data.code=='200'){
+                        localStorage.setItem('jwt',response.data.jwt)
+                        localStorage.setItem('id',response.data.id);
+
+                        location.href="room.html"
+                    }else{
+                        alert(response.data.error)
+                    }
+                })
+            }
+        }
+    })
+</script>

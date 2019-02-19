@@ -1,0 +1,78 @@
+2019-02-19 07:57:23 pid:1 Error: Call to undefined function vardump() in E:\cz\4ziliao\anheng\ChatRoom\server.php:47
+Stack trace:
+#0 [internal function]: {closure}(Object(Workerman\Connection\TcpConnection), 'undefined:1')
+#1 E:\cz\4ziliao\anheng\ChatRoom\Workerman-master\Connection\TcpConnection.php(658): call_user_func(Object(Closure), Object(Workerman\Connection\TcpConnection), 'undefined:1')
+#2 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #28)
+#3 E:\cz\4ziliao\anheng\ChatRoom\Workerman-master\Events\Select.php(294): call_user_func_array(Array, Array)
+#4 E:\cz\4ziliao\anheng\ChatRoom\Workerman-master\Worker.php(2349): Workerman\Events\Select->loop()
+#5 E:\cz\4ziliao\anheng\ChatRoom\Workerman-master\Worker.php(1343): Workerman\Worker->run()
+#6 E:\cz\4ziliao\anheng\ChatRoom\Workerman-master\Worker.php(1286): Workerman\Worker::forkWorkersForWindows()
+#7 E:\cz\4ziliao\anheng\ChatRoom\Workerman-master\Worker.php(509): Workerman\Worker::forkWorkers()
+#8 E:\cz\4ziliao\anheng\ChatRoom\server.php(51): Workerman\Worker::runAll()
+#9 {main}
+2019-02-19 07:57:23 pid:1 Worker process terminated
+2019-02-19 08:48:09 pid:1 Error: Call to a member function send() on null in E:\cz\4ziliao\anheng\ChatRoom\server.php:59
+Stack trace:
+#0 [internal function]: {closure}(Object(Workerman\Connection\TcpConnection), '1all:1')
+#1 E:\cz\4ziliao\anheng\ChatRoom\Workerman-master\Connection\TcpConnection.php(658): call_user_func(Object(Closure), Object(Workerman\Connection\TcpConnection), '1all:1')
+#2 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #49)
+#3 E:\cz\4ziliao\anheng\ChatRoom\Workerman-master\Events\Select.php(294): call_user_func_array(Array, Array)
+#4 E:\cz\4ziliao\anheng\ChatRoom\Workerman-master\Worker.php(2349): Workerman\Events\Select->loop()
+#5 E:\cz\4ziliao\anheng\ChatRoom\Workerman-master\Worker.php(1343): Workerman\Worker->run()
+#6 E:\cz\4ziliao\anheng\ChatRoom\Workerman-master\Worker.php(1286): Workerman\Worker::forkWorkersForWindows()
+#7 E:\cz\4ziliao\anheng\ChatRoom\Workerman-master\Worker.php(509): Workerman\Worker::forkWorkers()
+#8 E:\cz\4ziliao\anheng\ChatRoom\server.php(70): Workerman\Worker::runAll()
+#9 {main}
+2019-02-19 08:48:09 pid:1 Worker process terminated
+2019-02-19 14:36:30 pid:1 Error: Call to a member function send() on null in E:\cz\4ziliao\anheng\ChatRoom\server.php:62
+Stack trace:
+#0 [internal function]: {closure}(Object(Workerman\Connection\TcpConnection), ':1')
+#1 E:\cz\4ziliao\anheng\ChatRoom\Workerman-master\Connection\TcpConnection.php(658): call_user_func(Object(Closure), Object(Workerman\Connection\TcpConnection), ':1')
+#2 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #51)
+#3 E:\cz\4ziliao\anheng\ChatRoom\Workerman-master\Events\Select.php(294): call_user_func_array(Array, Array)
+#4 E:\cz\4ziliao\anheng\ChatRoom\Workerman-master\Worker.php(2349): Workerman\Events\Select->loop()
+#5 E:\cz\4ziliao\anheng\ChatRoom\Workerman-master\Worker.php(1343): Workerman\Worker->run()
+#6 E:\cz\4ziliao\anheng\ChatRoom\Workerman-master\Worker.php(1286): Workerman\Worker::forkWorkersForWindows()
+#7 E:\cz\4ziliao\anheng\ChatRoom\Workerman-master\Worker.php(509): Workerman\Worker::forkWorkers()
+#8 E:\cz\4ziliao\anheng\ChatRoom\server.php(85): Workerman\Worker::runAll()
+#9 {main}
+2019-02-19 14:36:30 pid:1 Worker process terminated
+2019-02-19 14:56:02 pid:1 Error: Call to a member function send() on null in E:\cz\4ziliao\anheng\ChatRoom\server.php:62
+Stack trace:
+#0 [internal function]: {closure}(Object(Workerman\Connection\TcpConnection), ':1')
+#1 E:\cz\4ziliao\anheng\ChatRoom\Workerman-master\Connection\TcpConnection.php(658): call_user_func(Object(Closure), Object(Workerman\Connection\TcpConnection), ':1')
+#2 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #38)
+#3 E:\cz\4ziliao\anheng\ChatRoom\Workerman-master\Events\Select.php(294): call_user_func_array(Array, Array)
+#4 E:\cz\4ziliao\anheng\ChatRoom\Workerman-master\Worker.php(2349): Workerman\Events\Select->loop()
+#5 E:\cz\4ziliao\anheng\ChatRoom\Workerman-master\Worker.php(1343): Workerman\Worker->run()
+#6 E:\cz\4ziliao\anheng\ChatRoom\Workerman-master\Worker.php(1286): Workerman\Worker::forkWorkersForWindows()
+#7 E:\cz\4ziliao\anheng\ChatRoom\Workerman-master\Worker.php(509): Workerman\Worker::forkWorkers()
+#8 E:\cz\4ziliao\anheng\ChatRoom\server.php(85): Workerman\Worker::runAll()
+#9 {main}
+2019-02-19 14:56:02 pid:1 Worker process terminated
+2019-02-19 15:02:23 pid:1 Error: Call to a member function send() on null in E:\cz\4ziliao\anheng\ChatRoom\server.php:62
+Stack trace:
+#0 [internal function]: {closure}(Object(Workerman\Connection\TcpConnection), ':1')
+#1 E:\cz\4ziliao\anheng\ChatRoom\Workerman-master\Connection\TcpConnection.php(658): call_user_func(Object(Closure), Object(Workerman\Connection\TcpConnection), ':1')
+#2 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #31)
+#3 E:\cz\4ziliao\anheng\ChatRoom\Workerman-master\Events\Select.php(294): call_user_func_array(Array, Array)
+#4 E:\cz\4ziliao\anheng\ChatRoom\Workerman-master\Worker.php(2349): Workerman\Events\Select->loop()
+#5 E:\cz\4ziliao\anheng\ChatRoom\Workerman-master\Worker.php(1343): Workerman\Worker->run()
+#6 E:\cz\4ziliao\anheng\ChatRoom\Workerman-master\Worker.php(1286): Workerman\Worker::forkWorkersForWindows()
+#7 E:\cz\4ziliao\anheng\ChatRoom\Workerman-master\Worker.php(509): Workerman\Worker::forkWorkers()
+#8 E:\cz\4ziliao\anheng\ChatRoom\server.php(85): Workerman\Worker::runAll()
+#9 {main}
+2019-02-19 15:02:23 pid:1 Worker process terminated
+2019-02-19 15:12:12 pid:1 Error: Call to a member function send() on null in E:\cz\4ziliao\anheng\ChatRoom\server.php:62
+Stack trace:
+#0 [internal function]: {closure}(Object(Workerman\Connection\TcpConnection), ':1')
+#1 E:\cz\4ziliao\anheng\ChatRoom\Workerman-master\Connection\TcpConnection.php(658): call_user_func(Object(Closure), Object(Workerman\Connection\TcpConnection), ':1')
+#2 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #30)
+#3 E:\cz\4ziliao\anheng\ChatRoom\Workerman-master\Events\Select.php(294): call_user_func_array(Array, Array)
+#4 E:\cz\4ziliao\anheng\ChatRoom\Workerman-master\Worker.php(2349): Workerman\Events\Select->loop()
+#5 E:\cz\4ziliao\anheng\ChatRoom\Workerman-master\Worker.php(1343): Workerman\Worker->run()
+#6 E:\cz\4ziliao\anheng\ChatRoom\Workerman-master\Worker.php(1286): Workerman\Worker::forkWorkersForWindows()
+#7 E:\cz\4ziliao\anheng\ChatRoom\Workerman-master\Worker.php(509): Workerman\Worker::forkWorkers()
+#8 E:\cz\4ziliao\anheng\ChatRoom\server.php(85): Workerman\Worker::runAll()
+#9 {main}
+2019-02-19 15:12:12 pid:1 Worker process terminated
