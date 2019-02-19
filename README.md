@@ -1,10 +1,16 @@
-首先  启动php内置服务器 默认端口为9999
+# 基于workerman的聊天室
 
-​	php -S localhost:9999
+##### 首先  启动php内置服务器 默认端口为9999
+
+~~~php 
+ php -S localhost:9999
+~~~
 
 然后启动websocket服务
 
-​	php server.php start
+~~~php
+php server.php start
+~~~
 
 在dologin.php 中修改数据库的名称、用户名、密码
 
@@ -18,5 +24,4 @@
 
 
 必须使用两个浏览器 登陆  否则账号就会 重复登陆
-
 
